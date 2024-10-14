@@ -87,4 +87,19 @@ public class ExampleTest {
     
     }
 
+    @Test
+    public void testFactorialNegativo() {
+        int numero = -7;
+        assertThrows(IllegalArgumentException.class,() -> {
+            example.factorial(numero);
+        });
+    }
+
+    @Test
+    public void testFactorial() {
+        int numero = 4;
+        Long resultFactorial = 24L;
+        Long result = example.factorial(numero);
+        assertEquals(resultFactorial, result, "El factorial de 4 debería ser 24");
+    }
 }
