@@ -1,8 +1,10 @@
 package org.factoriaf5.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,6 +49,42 @@ public class ExampleTest {
         assertThrows(IllegalArgumentException.class,() -> {
             example.checkPositivo(numero);
         });
+    }
+
+    @Test
+    public void testContarLetrasA() {
+        String cadena = "mariposa";
+        int result = 2;
+
+        int letrasA = example.contarLetrasA(cadena);
+        assertTrue(result == letrasA);
+    }
+
+    @Test
+    public void testContieneElemento(){
+        List<String> lista = Arrays.asList("azul", "amarillo", "verde", "rojo");
+        String elemento = "azul";
+        
+        boolean resultado = example.contieneElemento(lista, elemento);
+        assertTrue(resultado);
+    }
+
+    @Test
+    public void testNoContieneElemento(){
+        List<String> lista = Arrays.asList("azul", "amarillo", "verde", "rojo");
+        String sinElemento = "blanco";
+        boolean resultadoSinElemento = example.contieneElemento(lista, sinElemento);
+        assertFalse(resultadoSinElemento);
+    }
+
+    @Test
+    public void testRevertirCadena () {
+    
+    String cadena = "ABCDE";
+    String reversCadena = "EDCBA";
+    String result = example.revertirCadena(cadena);
+    assertEquals(reversCadena, result);
+    
     }
 
 }
